@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import { APP_CONFIG } from '@/lib/constants';
 import { Header } from '@/components/layout/Header';
 import '@/styles/globals.css';
@@ -34,6 +35,7 @@ export default function RootLayout({
           </p>
           <p className="mt-2">Made with ❤️ for Volleyball Fans</p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
