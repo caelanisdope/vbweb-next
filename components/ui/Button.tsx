@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ANIMATION_DURATION, EASING } from '@/lib/constants';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onAnimationStart' | 'onAnimationEnd'> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
@@ -55,7 +55,7 @@ export function Button({
         duration: ANIMATION_DURATION.FAST,
         ease: EASING.STANDARD as any,
       }}
-      {...props}
+      {...(props as any)}
     >
       {loading ? (
         <>

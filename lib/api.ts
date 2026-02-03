@@ -57,7 +57,7 @@ export function calculatePlayerTotalPoints(data: VBData, playerName: string): nu
 
 // 生成数据洞察
 export function generateInsights(data: VBData) {
-  const insights = [];
+  const insights: Array<{ icon: string; text: string; type: 'info' | 'success' | 'warning' }> = [];
   
   // 遍历每个球员
   const playerNames = [...new Set(data.matches.map(m => m.playerName))];
