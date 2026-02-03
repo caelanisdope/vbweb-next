@@ -1,0 +1,19 @@
+{
+  "playerName": "庄宇珊",
+  "playerNameEn": "Yushan Zhuang",
+  "season": "2025-2026",
+  "team": "San Giovanni",
+  "rank": 2,
+  "official_stats": {
+    "matches_played": 10,
+    "total_points": 157,
+    "total_attacks": 357,
+    "successful_attacks": 141,
+    "attack_percentage": 39.5,
+    "total_serves": 142,
+    "aces": 10,
+    "blocks": 6,
+    "serve_errors": 10,
+    "perfect_receptions": 95
+  }
+}
