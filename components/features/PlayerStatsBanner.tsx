@@ -107,16 +107,16 @@ export function PlayerStatsBanner({
           </motion.div>
 
           {/* Right: Stats Dashboard - 50% Width */}
-          <div className="w-full lg:w-1/2 p-6 bg-white flex flex-col justify-center">
+          <div className="w-full lg:w-1/2 p-4 sm:p-6 bg-white flex flex-col justify-center">
             {/* Row 1: Core Stats - 3 items */}
-            <div className="grid grid-cols-3 gap-3 mb-3">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-3 border border-blue-200">
-                <div className="text-xs text-blue-700 font-semibold mb-1">赛季总得分</div>
-                <div className="flex items-baseline justify-between">
-                  <div className="text-3xl font-bold text-blue-600 leading-tight">
-                    {totalPoints}<span className="text-base ml-1">分</span>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-3">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-blue-200">
+                <div className="text-[10px] sm:text-xs text-blue-700 font-semibold mb-0.5 sm:mb-1">赛季总得分</div>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+                  <div className="text-xl sm:text-3xl font-bold text-blue-600 leading-tight">
+                    {totalPoints}<span className="text-xs sm:text-base ml-0.5 sm:ml-1">分</span>
                   </div>
-                  <div className="text-xs text-blue-600">
+                  <div className="text-[10px] sm:text-xs text-blue-600">
                     场均 <span className="font-bold">{avgPoints}</span>分
                   </div>
                 </div>
@@ -126,20 +126,20 @@ export function PlayerStatsBanner({
             </div>
 
             {/* Row 2: Attack Stats - Highlighted Group */}
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-3 mb-3 border border-orange-200">
-              <div className="flex items-center justify-between mb-2">
-                <div className="text-sm text-orange-700 font-bold">扣球数据</div>
-                <div className="text-xs text-orange-600">Attack Stats</div>
+            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg sm:rounded-xl p-2 sm:p-3 mb-2 sm:mb-3 border border-orange-200">
+              <div className="flex items-center justify-between mb-1 sm:mb-2">
+                <div className="text-xs sm:text-sm text-orange-700 font-bold">扣球数据</div>
+                <div className="text-[10px] sm:text-xs text-orange-600 hidden sm:block">Attack Stats</div>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <StatBox label="扣球总得分" value={totalAttackPoints} unit="分" color="text-red-600" size="sm" />
                 <StatBox label="平均成功率" value={avgAttackSuccess} unit="%" color="text-orange-600" size="sm" />
                 <StatBox label="平均效率" value={avgAttackEfficiency} unit="%" color="text-amber-600" size="sm" />
               </div>
             </div>
 
-            {/* Row 3: Defense & Serve Stats - 4 items */}
-            <div className="grid grid-cols-4 gap-3">
+            {/* Row 3: Defense & Serve Stats - 2x2 on mobile, 4 on desktop */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               <StatBox label="发球Ace" value={totalAces} unit="个" color="text-cyan-600" />
               <StatBox label="拦网得分" value={totalBlocks} unit="分" color="text-purple-600" />
               <StatBox label="一传总次数" value={totalReceptions} unit="次" color="text-indigo-600" />
@@ -162,10 +162,10 @@ interface StatBoxProps {
 
 function StatBox({ label, value, unit, color = 'text-gray-900', size = 'md' }: StatBoxProps) {
   return (
-    <div className="bg-gray-50 rounded-xl p-3 border border-gray-200 text-center hover:shadow-md transition-shadow">
-      <div className="text-xs text-gray-600 font-semibold mb-1">{label}</div>
-      <div className={`${size === 'sm' ? 'text-2xl' : 'text-3xl'} font-bold ${color} leading-tight`}>
-        {value}<span className="text-sm ml-1">{unit}</span>
+    <div className="bg-gray-50 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-gray-200 text-center hover:shadow-md transition-shadow">
+      <div className="text-[10px] sm:text-xs text-gray-600 font-semibold mb-0.5 sm:mb-1 line-clamp-1">{label}</div>
+      <div className={`${size === 'sm' ? 'text-lg sm:text-2xl' : 'text-xl sm:text-3xl'} font-bold ${color} leading-tight`}>
+        {value}<span className="text-xs sm:text-sm ml-0.5 sm:ml-1">{unit}</span>
       </div>
     </div>
   );
