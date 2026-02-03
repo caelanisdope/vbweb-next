@@ -67,39 +67,39 @@ export function PlayerStatsBanner({
             </div>
 
             {/* Floating Info - Bottom Only */}
-            <div className="absolute inset-x-0 bottom-0 p-4">
+            <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 {/* Compact Info Bar */}
-                <div className="bg-black/40 backdrop-blur-xl rounded-xl p-2.5 border border-white/20">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <h2 className="text-xl font-bold text-white leading-tight">
+                <div className="bg-black/40 backdrop-blur-xl rounded-xl p-3 sm:p-2.5 border border-white/20">
+                  <div className="flex items-center justify-between mb-2 sm:mb-1.5">
+                    <h2 className="text-2xl sm:text-xl font-bold text-white leading-tight">
                       {player.name}
                     </h2>
                     {player.number && (
-                      <div className="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/30">
-                        <span className="text-sm font-bold text-white">#{player.number}</span>
+                      <div className="bg-white/20 backdrop-blur-sm px-3 py-1 sm:px-2 sm:py-0.5 rounded-full border border-white/30">
+                        <span className="text-base sm:text-sm font-bold text-white">#{player.number}</span>
                       </div>
                     )}
                   </div>
-                  <p className="text-xs text-gray-200 mb-2">{player.enName}</p>
+                  <p className="text-sm sm:text-xs text-gray-200 mb-2.5 sm:mb-2">{player.enName}</p>
                   
-                  {/* Info Pills - Horizontal One Line */}
-                  <div className="flex items-center gap-1.5 text-xs text-gray-200">
+                  {/* Info Pills - Responsive Layout */}
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-1.5 text-sm sm:text-xs text-gray-200">
                     <span className="font-semibold text-white">{player.position}</span>
                     {player.age && (
                       <>
-                        <span className="text-white/40">|</span>
+                        <span className="text-white/40">·</span>
                         <span className="font-semibold text-white">{player.age}岁</span>
                       </>
                     )}
-                    <span className="text-white/40">|</span>
+                    <span className="text-white/40">·</span>
                     <span className="font-semibold text-white">{player.height || '-'}</span>
-                    <span className="text-white/40">|</span>
-                    <span className="font-semibold text-white">{player.teamCN || player.team}</span>
+                    <span className="text-white/40 hidden sm:inline">·</span>
+                    <span className="font-semibold text-white sm:inline block w-full sm:w-auto mt-1 sm:mt-0">{player.teamCN || player.team}</span>
                   </div>
                 </div>
               </motion.div>
